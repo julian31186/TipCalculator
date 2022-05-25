@@ -1,29 +1,29 @@
-import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';    
+import logo from './logo.svg';  
+import './App.css'; 
 import { idText } from 'typescript';
 
-function App() {
+function App() {   // App is a component
 
-const[amount, setAmount] = useState(0)
+const[amount, setAmount] = useState(0)     // useState is a hook
 const[tip , setTip] = useState(0)
 const[prevTip, setprevTip] = useState(0)
 
-const calcTip = (num:number) => {
+const calcTip = (num:number) => {   //calculate tip
   setTip(Math.round((amount * num) * 100) / 100)
 }
 
-const roundUp = () => {
+const roundUp = () => {    //round up tip
    setprevTip(tip)
    setTip(Math.ceil(tip))
 }
 
-const setPrevTip = () => {
+const setPrevTip = () => { //set previous tip
   setTip(prevTip)
 }
 
 
-const isChecked = (e:any) => {
+const isChecked = (e:any) => {    //check if checkbox is checked
   if(e.target.checked) {
     roundUp()
   } else {
@@ -32,7 +32,7 @@ const isChecked = (e:any) => {
 } 
 
 
-  return (
+  return (   //return app
     <div  className="App">
 
       <div>
